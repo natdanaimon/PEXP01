@@ -1,0 +1,326 @@
+@font-face {
+    font-family: thsarabunnew;
+    src: url(font/thsarabunnew-webfont.woff);
+}
+
+body,input,select,textarea,radio,button,a{ 
+    font-family: thsarabunnew !important;
+}
+
+.m-subheader .m-subheader__title, .m-portlet .m-portlet__head .m-portlet__head-caption .m-portlet__head-title .m-portlet__head-text {
+    font-family: thsarabunnew !important;
+}
+
+.alert .close {
+    font-family: LineAwesome !important;
+}
+
+.js #loader {
+    display: block;
+    position: absolute;
+    left: 100px;
+    top: 0;
+}
+
+.no-js #loader {
+    display: none;
+}
+
+.se-pre-con {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    background: rgba(255, 255, 255, .5) url('') no-repeat;
+    background-position: center center;
+}
+
+.require {
+    color: red !important;
+    font-weight: bold;
+}
+
+.uploadProfile:hover {
+    background-color: #36dcef;
+    border-color: #00c5dc;
+    transition: background-color 0.15s ease-in-out, border-color 0.15s
+        ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.d-flex.align-items-center {
+    height: 50px;
+}
+
+.m-nav__link-icon {
+    padding-bottom: 2;
+}
+
+.m-subheader__title.m-subheader__title--separator {
+    padding-top: 1px;
+}
+
+.mCSB_scrollTools .mCSB_dragger:active .mCSB_dragger_bar,
+.mCSB_scrollTools .mCSB_dragger.mCSB_dragger_onDrag .mCSB_dragger_bar {
+    background-color: rgba(148, 124, 222, 0.9) !important;
+}
+
+.m-scrollable .mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {
+    background-color: rgba(148, 124, 222, 0.9) !important;
+}
+
+.form-control[readonly] {
+    background-color: #f4f5f8 !important;
+}
+
+.m-messenger .m-messenger__messages .m-messenger__message.m-messenger__message--ins .m-messenger__message-content
+{
+    background: #716aca !important;
+}
+
+.m-messenger .m-messenger__messages .m-messenger__message.m-messenger__message--ins .m-messenger__message-content .m-messenger__message-username
+{
+    color: #f0f0f0 !important;
+}
+
+.m-messenger .m-messenger__messages .m-messenger__message.m-messenger__message--ins .m-messenger__message-content .m-messenger__message-text
+{
+    color: #f7f7f7 !important;
+}
+
+.m-messenger.m-messenger.m-messenger--message-arrow .m-messenger__message.m-messenger__message--ins .m-messenger__message-arrow
+{
+    color: #716aca !important;
+}
+
+/* custom messenger ins */
+.m-messenger.m-messenger.m-messenger--message-arrow .m-messenger__message.m-messenger__message--ins .m-messenger__message-arrow
+{
+    position: absolute;
+    line-height: 0;
+    display: inline-block;
+    overflow: hidden;
+    width: 10px;
+    height: 40px;
+    position: relative;
+    left: 0;
+    margin-left: -9px;
+    left: 2px;
+    right: auto;
+    position: absolute;
+    margin-left: 0;
+    margin-top: 6px;
+}
+
+.m-messenger.m-messenger.m-messenger--message-arrow .m-messenger__message.m-messenger__message--ins .m-messenger__message-arrow:before
+{
+    display: inline-block;
+    font-family: "Metronic";
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    line-height: 0px;
+    text-decoration: inherit;
+    text-rendering: optimizeLegibility;
+    text-transform: none;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    font-smoothing: antialiased;
+    content: "เน�๏ฟฝเธ”";
+}
+
+.m-messenger.m-messenger.m-messenger--message-arrow .m-messenger__message.m-messenger__message--ins .m-messenger__message-arrow:before
+{
+    position: relative;
+    top: 0;
+    margin-top: 20px;
+    font-size: 40px;
+}
+
+.m-messenger.m-messenger.m-messenger--message-arrow .m-messenger__message.m-messenger__message--ins .m-messenger__message-content
+{
+    margin-left: 10px;
+}
+
+.m-messenger.m-messenger.m-messenger--message-arrow .m-messenger__message.m-messenger__message--ins .m-messenger__message-arrow:before
+{
+    position: relative;
+    top: 0;
+    margin-top: 20px;
+    font-size: 40px;
+}
+
+#map {
+    height: 100%;
+}
+
+#infowindow-content .title {
+    font-weight: bold;
+}
+
+#infowindow-content {
+    display: none;
+}
+
+.pac-card {
+    margin: 10px 10px 0 0;
+    border-radius: 2px 0 0 2px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    outline: none;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    background-color: #fff;
+    font-family: Roboto;
+}
+
+#pac-container {
+    padding-bottom: 12px;
+    margin-right: 12px;
+}
+
+.pac-controls {
+    display: inline-block;
+    padding: 5px 11px;
+}
+
+.pac-controls label {
+    font-family: Roboto;
+    font-size: 13px;
+    font-weight: 300;
+}
+
+#pac-input {
+    background-color: #fff;
+    font-family: Roboto;
+    font-size: 15px;
+    font-weight: 300;
+    margin-left: 12px;
+    padding: 0 11px 0 13px;
+    text-overflow: ellipsis;
+    width: 400px;
+}
+
+#pac-input:focus {
+    border-color: #4d90fe;
+}
+
+#pac-title {
+    color: #fff;
+    background-color: #4d90fe;
+    font-size: 25px;
+    font-weight: 500;
+    padding: 6px 12px;
+}
+
+.disable-fix {
+    background-color: #ebedf2 !important;
+}
+
+.font11{
+    font-size: 11px !important;
+}
+
+.text-left-fix{
+    text-align: left !important;
+}
+
+.text-right-fix{
+    text-align: right !important;
+}
+
+
+select.form-control{
+    padding-bottom: 0px !important;
+    padding-top: 0px !important;
+}
+
+
+
+#mapModal {
+    height: 100%;
+}
+
+#infowindow-content-modal .title {
+    font-weight: bold;
+}
+
+#infowindow-content-modal {
+    display: none;
+}
+
+.pac-card-modal {
+    margin: 10px 10px 0 0;
+    border-radius: 2px 0 0 2px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    outline: none;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    background-color: #fff;
+    font-family: Roboto;
+}
+
+#pac-container-modal {
+    padding-bottom: 12px;
+    margin-right: 12px;
+}
+
+.pac-controls-modal {
+    display: inline-block;
+    padding: 5px 11px;
+}
+
+.pac-controls-modal label {
+    font-family: Roboto;
+    font-size: 13px;
+    font-weight: 300;
+}
+
+#pac-input-modal {
+    background-color: #fff;
+    font-family: Roboto;
+    font-size: 15px;
+    font-weight: 300;
+    margin-left: 12px;
+    padding: 0 11px 0 13px;
+    text-overflow: ellipsis;
+    width: 400px;
+}
+
+#pac-input-modal:focus {
+    border-color: #4d90fe;
+}
+
+
+#pac-title-modal {
+    color: #fff;
+    background-color: #4d90fe;
+    font-size: 25px;
+    font-weight: 500;
+    padding: 6px 12px;
+}
+
+
+
+.wrapper {
+    overflow: auto;
+    background: white;
+    width: auto;
+    padding: 10px 0px;
+}
+
+.wrapper::-webkit-scrollbar{
+    width: 18px;
+    border-radius: 20px;
+}
+
+.wrapper::-webkit-scrollbar-track{
+    background: #CCEEF4;
+    border-radius: 20px;
+}
+::-webkit-scrollbar-thumb{
+    width: auto;
+    background: #49AEC0;
+    border: 5px solid #CCEEF4;
+    border-radius: 15px;
+}

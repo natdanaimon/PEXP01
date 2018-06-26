@@ -1,0 +1,104 @@
+{
+    "browserTitle": "Management",
+    "systemName": "Management",
+    "titleAdd": "Add",
+    "titleEdit": "Edit",
+    "menu": {
+        "dashboard": "Dashboard",
+        "permission": "Permission",
+        "user": "User",
+        "manage": "Manage",
+        "bill": "Bill",
+        "config": "Config"
+    },
+    "titleNotify": {
+        "pageLogin": "Notification of Transaction Data.",
+        "message01": "Notification of Transaction Data.",
+        "message02": "Notification.",
+        "message03": "Do you want to make a transaction ?",
+        "message04": "Please Click to make transaction."
+    },
+    "Success": {
+        "0": "Transaction Success."
+    },
+    "Err": {
+        "2001": "Transaction Not Success.",
+        "2002": "Please write your field required.",
+        "2003": "Please write your field information as required regular format.",
+        "2004": "field is incorrect.",
+        "2005": "field is Dupplicate.",
+        "2006": "field not special characters.",
+        "2011": "Please Select data.",
+
+        "3001": "the size of the image file size is not specified",
+        "3002": "the size of the document file size is not specified.",
+        "3003": "Type the file uploaded incorrect.",
+
+        "4001": "Username not Identify Special characters.",
+        "4002": "Password not Identify Special characters."
+    },
+    "ErrorLabelFormat": {
+        "phone": "number 10 digit"
+    },
+    "btn": {
+        "save": "Save",
+        "cancel": "Cancel",
+        "import": "Import",
+        "download": "Download",
+        "confirm": "Confirm",
+        "delete": "Delete",
+        "add": "Add"
+    },
+    "status": {
+        "all": "All",
+        "pending": "Pending",
+        "cancel": "Cancel",
+        "active": "Active"
+    },
+    "statusLevel": {
+        "S": "Super Admin",
+        "N": "Admin"
+    },
+    "lb": {
+        "logout": "Logout",
+        "profile": "My Profile",
+        "support": "Support",
+        "uploadProfile": "Edit Profile",
+        "profile": "Profile",
+        "editProfile": "Edit Profile",
+        "editPassword": "Edit Password",
+        "email": "Email",
+        "firstName": "First Name",
+        "lastName": "Last Name",
+        "username": "Username",
+        "password": "Password",
+        "passwordOld": "Password Current",
+        "passwordNew": "Password New",
+        "passwordNewConfirm": "Password New Confirm",
+        "remember": "Remember",
+        "signIn": "SignIn",
+        "forgetPassword": "Forget Password ?",
+        "levelUser": "Level User",
+        "phoneMobile": "Mobile Phone",
+        "lineID": "Line ID",
+        "pleaseSelect": "Please Select",
+        "tableTitlefix": "Table",
+        "status": "Status",
+        "statusTitle": "Usage Status",
+        "search": "Search",
+        "action": "Action",
+        "recordNotFound": "No records found",
+        "displaying": "Displaying",
+        "ofAll": "of",
+        "records": "records",
+        "information": "Information",
+        "createDate": "Create Date",
+        "lastUpdateDate": "Last Update Date",
+        "address": "Address",
+        "logo": "Logo",
+        "sign": "Sign"
+    },
+    "badRequest": {
+        "9001": "invalid request authentication found"
+    }
+}
