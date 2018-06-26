@@ -9,10 +9,11 @@ function calculator_per($pPos,$pEarned){
 $total = ($pPos*$pEarned) / 100;
 return $total;
 }
+ob_start();
 ?>
 <html lang="en" >
     <!-- begin::Head -->
-    <?php include_once '../../templateds/templated-header.php'; ?>
+ 
     <!-- end::Head -->
     <!-- end::Body -->
     <body  class=""  >     <!-- begin:: Page -->
@@ -53,10 +54,10 @@ $_POST[d_finish] = date('d-m-Y',strtotime($_POST[d_finish]));
 			<td>
 				<?php
 				if($_FILES["s_product"]["name"]){
-					echo sprintf('<img src="data:image/png;base64,%s" width="250"  />', base64_encode($s_product));
+					echo sprintf('<img src="data:image/png;base64,%s" width="230"  />', base64_encode($s_product));
 				}else{
 					?>
-					<img src="../../image/noimage.gif" width="250" />
+					<img src="../../image/noimage.gif" width="230" />
 					<?php
 				}
 				
@@ -65,10 +66,10 @@ $_POST[d_finish] = date('d-m-Y',strtotime($_POST[d_finish]));
 				<br />
 				<?php
 				if($_FILES["s_slip"]["name"]){
-				echo sprintf('<img src="data:image/png;base64,%s" width="250"  />', base64_encode($s_slip));
+				echo sprintf('<img src="data:image/png;base64,%s" width="230"  />', base64_encode($s_slip));
 				}else{
 					?>
-					<img src="../../image/noimage.gif" width="250" />
+					<img src="../../image/noimage.gif" width="230" />
 					<?php
 				}
 				?>
@@ -95,10 +96,18 @@ $_POST[d_finish] = date('d-m-Y',strtotime($_POST[d_finish]));
 					</tr>
 					<tr>
 						<td><strong>ค่าดำเนินการ</strong></td>
+						<td align="left" colspan="3"><?=$_POST[i_commission1];?>% : <?=number_format($t_com,2);?>-.</td>
+					</tr>
+					<tr>
+						<td><strong>อัตราดอกเบี้ย</strong></td>
+						<td align="left" colspan="3"><?=$_POST[i_vat1];?>% : <?=number_format($t_vat,2);?>-.</td>
+					</tr>
+					<!--<tr>
+						<td><strong>ค่าดำเนินการ</strong></td>
 						<td align="left"><?=$_POST[i_commission1];?>% : <?=number_format($t_com,2);?>-.</td>
 						<td><strong>อัตราดอกเบี้ย</strong></td>
 						<td align="left"><?=$_POST[i_vat1];?>% : <?=number_format($t_vat,2);?>-.</td>
-					</tr>
+					</tr>-->
 					<tr>
 						<td><strong>ยอดคงเหลือ</strong></td>
 						<td align="left" colspan="3"><?=number_format($balance,2);?>-.</td>
@@ -119,7 +128,7 @@ $_POST[d_finish] = date('d-m-Y',strtotime($_POST[d_finish]));
 				<div style="border: 1px solid #000; padding: 5px;">
 					<table>
 						<tr>
-							<td>
+							<td valign="top" align="center">
 								<!-- QR Code -->
 								<img src="../../image/qrcode.jpg"/>
 								<br />
@@ -129,7 +138,7 @@ $_POST[d_finish] = date('d-m-Y',strtotime($_POST[d_finish]));
 								<div>
 									<table cellpadding="5">
 										<tr>
-											<td>
+											<td width="40">
 												<img src="../../image/line.png" width="30"/>
 											</td>
 											<td>
@@ -155,21 +164,22 @@ $_POST[d_finish] = date('d-m-Y',strtotime($_POST[d_finish]));
 						</tr>
 					</table>
 				</div>
-				<div align="right" style="padding: 5px;">
+
 					<table>
 						<tr>
-							<td>
+						<td width="60%"></td>
+							<td align="center">
 								<img src="../../image/sign/<?=$s_sign;?>" height="33"/>
 							</td>
 						</tr>
 						<tr>
+						<td></td>
 							<td align="center">
 								( <?=$s_name;?> )
 							</td>
 						</tr>
 					</table>
-					
-				</div>
+
 			</td>
 		</tr>
 	</table>
@@ -214,3 +224,16 @@ $_POST[d_finish] = date('d-m-Y',strtotime($_POST[d_finish]));
     </body>
     <!-- end::Body -->
 </html>
+<?php
+$output = ob_get_contents();
+ob_end_clean();
+require_once __DIR__ . '/../../vendorPdf/autoload.php';
+
+$mpdf = new \Mpdf\Mpdf([
+	'mode' => 'utf-8', 
+	'default_font_size' => 15,
+	'default_font' => 'thsarabunnew'
+]);
+$mpdf->WriteHTML($output);
+$mpdf->Output();
+?>
