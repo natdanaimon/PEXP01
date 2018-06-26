@@ -97,6 +97,15 @@
 
                                                 <div class="form-group m-form__group row">
                                                     <label for="example-text-input"
+                                                           class="col-3 col-form-label"> ชื่อ
+                                                        <span class="require">*</span></label>
+                                                    <div class="col-7">
+                                                       <input type="text" name="s_name" id="s_name" class="form-control m-input"/>
+                                                    </div>
+                                                </div>	
+                                                
+                                                <div class="form-group m-form__group row">
+                                                    <label for="example-text-input"
                                                            class="col-3 col-form-label"> <?= L::lb_address ?>
                                                         <span class="require">*</span></label>
                                                     <div class="col-7">

@@ -71,8 +71,7 @@
                     <!---------------------  START CONTENT  --------------------->
                     <div class="m-content">
                         <!--begin::Form-->
-                        <form class="m-form m-form--fit m-form--label-align-right"
-                              id="form-action">
+                        <form class="m-form m-form--fit m-form--label-align-right" id="form-action" action="../../bill/export/index.php" target="_blank"  method="POST" enctype="multipart/form-data">
                             <div class="row">
                                 
                                 <div class="col-lg-12">
@@ -90,45 +89,143 @@
 
                                         <div class="m-portlet__body">
                                             <div class="m-form__section m-form__section--first">
-
-
-                                                <div class="form-group m-form__group row">
+                                            <div class="row">
+                                            	<div class="col-5">
+                                            		<div class="row">
+                                            			<div class="col-12">
+		                                                <div class="form-group m-form__group row">
+		                                                    <label for="example-text-input"
+		                                                           class="col-3 col-form-label"> <?= L::lb_product ?>
+		                                                        <span class="require">*</span>
+		                                                    </label>
+		                                                    <div class="col-9">
+		                                                        <img id="blah-s_product" onclick="putImage('s_product')"style="cursor: pointer;" title="<?= L::lb_product ?>" data-toggle="m-tooltip"  src="../../image/noimage.gif" width="150" />
+		                                                        <div id="image-preview">
+		                                                            <label for="s_product" id="image-s_product" style="display: none;">Choose File</label>
+		                                                            <input style="display: none;" type="file" name="s_product" id="s_product" onchange="readURL(this,'blah-s_product');" accept=".jpg,.jpeg,.gif,.png" />
+		                                                        </div>
+		                                                    </div>
+		                                                </div>
+	                                                </div>
+                                              	</div>
+                                              	<br />
+                                              	<br />
+                                              	<div class="row">
+                                              		<div class="col-12">
+		                                              	<div class="form-group m-form__group row">
+		                                                    <label for="example-text-input"
+		                                                           class="col-3 col-form-label"> <?= L::lb_slip ?>
+		                                                        <span class="require">*</span>
+		                                                    </label>
+		                                                    <div class="col-9">
+		                                                        <img id="blah-s_slip" onclick="putImage('s_slip')"style="cursor: pointer;" title="<?= L::lb_slip ?>" data-toggle="m-tooltip"  src="../../image/noimage.gif" width="150" />
+		                                                        <div id="image-preview">
+		                                                            <label for="s_slip" id="image-s_slip" style="display: none;">Choose File</label>
+		                                                            <input style="display: none;" type="file" name="s_slip" id="s_slip" onchange="readURL(this,'blah-s_slip');" accept=".jpg,.jpeg,.gif,.png" />
+		                                                        </div>
+		                                                    </div>
+		                                                </div>
+	                                                </div>
+                                                </div>
+                                              </div>
+                                              <div class="col-7">
+                                                <div class="form-group m-form__group row" style="padding-top: 5px;padding-bottom: 5px;">
                                                     <label for="example-text-input"
-                                                           class="col-3 col-form-label"> <?= L::lb_username ?>
+                                                           class="col-4 col-form-label"> <?= L::lb_name ?>
                                                         <span class="require">*</span></label>
                                                     <div class="col-7">
-                                                        <input class="form-control m-input" type="text"
-                                                               id="s_user" name="s_user" value="">
-                                                    </div>
-                                                </div>	
-
-                                               
-
-
-                                                <div class="form-group m-form__group row">
-                                                    <label for="example-text-input"
-                                                           class="col-3 col-form-label"> <?= L::lb_firstName ?>
-                                                        <span class="require">*</span></label>
-                                                    <div class="col-7">
-                                                        <input class="form-control m-input" type="text"
-                                                               id="s_firstname" name="s_firstname"
-                                                               value="">
+                                                        <input class="form-control m-input" type="text" id="s_name" name="s_name" required="required">
                                                     </div>
                                                 </div>
-                                              
+                                                <div class="form-group m-form__group row" style="padding-top: 5px;padding-bottom: 5px;">
+                                                    <label for="example-text-input"
+                                                           class="col-4 col-form-label"> <?= L::lb_phoneMobile ?>
+                                                        <span class="require">*</span></label>
+                                                    <div class="col-7">
+                                                        <input class="form-control m-input" type="text" id="s_phone" name="s_phone" required="required">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group m-form__group row" style="padding-top: 5px;padding-bottom: 5px;">
+                                                    <label for="example-text-input"
+                                                           class="col-4 col-form-label"> <?= L::lb_type ?>
+                                                        <span class="require">*</span></label>
+                                                    <div class="col-7">
+                                                        <input class="form-control m-input" type="text" id="s_type" name="s_type" required="required">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group m-form__group row" style="padding-top: 5px;padding-bottom: 5px;">
+                                                    <label for="example-text-input"
+                                                           class="col-4 col-form-label"> <?= L::lb_price ?>
+                                                        <span class="require">*</span></label>
+                                                    <div class="col-7">
+                                                        <input class="form-control m-input" type="number" id="i_price" name="i_price" required="required"  onkeyup="calculator();" onblur="calculator();"/>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group m-form__group row" style="padding-top: 5px;padding-bottom: 5px;">
+                                                    <label for="example-text-input"
+                                                           class="col-4 col-form-label"> <?= L::lb_commission ?>
+                                                        <span class="require"></span></label>
+                                                    <div class="col-3">
+                                                    	<table>
+                                                    		<tr>
+                                                    			<td><input class="form-control m-input" type="number" id="i_commission1" name="i_commission1" value="3"  onkeyup="calculator();" onblur="calculator();"></td>
+                                                    			<td>%</td>
+                                                    		</tr>
+                                                    	</table>
+                                                    </div>
+                                                    <div class="col-4">
+                                                        <input class="form-control m-input" disabled="disabled" type="number" id="i_commission" name="i_commission">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group m-form__group row" style="padding-top: 5px;padding-bottom: 5px;">
+                                                    <label for="example-text-input"
+                                                           class="col-4 col-form-label"> <?= L::lb_vat ?>
+                                                        <span class="require"></span></label>
+                                                    <div class="col-3">
+                                                    	<table>
+                                                    		<tr>
+                                                    			<td><input class="form-control m-input" type="number" id="i_vat1" name="i_vat1" value="7"  onkeyup="calculator();" onblur="calculator();"></td>
+                                                    			<td>%</td>
+                                                    		</tr>
+                                                    	</table>
+                                                    </div>
+                                                    <div class="col-4">
+                                                        <input class="form-control m-input" disabled="disabled" type="number" id="i_vat" name="i_vat" >
+                                                    </div>
+                                                </div>
+                                                <div class="form-group m-form__group row" style="padding-top: 5px;padding-bottom: 5px;">
+                                                    <label for="example-text-input"
+                                                           class="col-4 col-form-label"> <?= L::lb_balance ?>
+                                                        <span class="require"></span></label>
+                                                    <div class="col-7">
+                                                        <input class="form-control m-input" disabled="disabled" type="number" id="i_balance" name="i_balance">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group m-form__group row" style="padding-top: 5px;padding-bottom: 5px;">
+                                                    <label for="example-text-input"
+                                                           class="col-4 col-form-label"> <?= L::lb_refund ?>
+                                                        <span class="require"></span></label>
+                                                    <div class="col-7">
+                                                        <input class="form-control m-input" disabled="disabled" type="number" id="i_refund" name="i_refund">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group m-form__group row" style="padding-top: 5px;padding-bottom: 5px;">
+                                                    <label for="example-text-input"
+                                                           class="col-4 col-form-label"> <?= L::lb_dateFinish ?>
+                                                        <span class="require">*</span></label>
+                                                    <div class="col-7">
+                                                        <input class="form-control m-input" type="date" id="d_finish" name="d_finish" required="required" value="<?=date('Y-m-d');?>">
+                                                    </div>
+                                                </div>
 
-
-
-
-
+                                            	</div>
+                                            	</div>
                                             </div>
                                         </div>
-                                        <div class="m-portlet__foot m-portlet__foot--fit"
-                                             align="center">
+                                        <div class="m-portlet__foot m-portlet__foot--fit" align="center">
                                             <div class="m-form__actions m-form__actions">
                                                 <a href="index.php" class="btn btn-secondary"><?= L::btn_cancel ?></a>
-                                                <a href="javascript:Export();" class="btn btn-primary" id="btn-mg-save"
-                                                   onclick=""><?= L::btn_save ?></a>
+                                                <button type="submit" class="btn btn-primary" id="btn-mg-save"><?= L::btn_save ?></button>
                                             </div>
                                             <?php if ($_POST[id] != NULL && $_POST[id] != "") { ?>
                                                 <div class="form-group m-form__group row">
@@ -172,6 +269,9 @@
         <!--<script src="../../assets/vendors/custom/fullcalendar/fullcalendar.bundle.js" type="text/javascript"></script>-->
         <!--end::Page Vendors -->  
         <!--begin::Page Snippets -->
+        <script>
+        	unblockui();
+        </script>
         <script src="../../js/bill/index.js" type="text/javascript"></script>
         <!--end::Page Snippets -->
     </body>

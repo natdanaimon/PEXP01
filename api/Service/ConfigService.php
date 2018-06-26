@@ -28,11 +28,16 @@ class ConfigService {
 //                . " s_firstname='$r[s_firstname]' , "
 //                . " s_lastname='$r[s_lastname]' , "
 
+         $strSql .= " , s_name ='".$r[s_name]."' ";
+         $_SESSION['s_name'] = $r[s_name];
+         $_SESSION['s_address'] = $r[s_address];
          if($r[s_logo]){
 				 	 $strSql .= " , s_logo ='".$r[s_logo]."' ";
+				 	 $_SESSION['s_logo'] = $r[s_logo];
 				 }
 				 if($r[s_sign]){
 				 	$strSql .= " , s_sign ='".$r[s_sign]."' ";
+				 	$_SESSION['s_sign'] = $r[s_sign];
 				 }
          
          $arr = array(

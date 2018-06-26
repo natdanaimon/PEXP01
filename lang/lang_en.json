@@ -96,7 +96,17 @@
         "lastUpdateDate": "Last Update Date",
         "address": "Address",
         "logo": "Logo",
-        "sign": "Sign"
+        "sign": "Sign",
+		"product": "Product",
+        "slip": "Slip",
+        "name": "Name",
+        "type": "Type",
+        "price": "Price",
+        "commission": "Commission",
+        "vat": "Vat",
+        "balance": "Balance",
+        "refund": "Refund",
+        "dateFinish": "Date Finish"
     },
     "badRequest": {
         "9001": "invalid request authentication found"

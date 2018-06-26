@@ -15,6 +15,20 @@ class AuthenService {
         $strSql .= " AND s_password ='$r[pass]' ";
         $_data = $db->Search_Data_FormatJson($strSql);
         $db->close_conn();
+        /////////// Set config
+        $strSql = "";
+        $strSql .= "SELECT ";
+        $strSql .= "  * ";
+        $strSql .= "FROM ";
+        $strSql .= "  tb_config  ";
+        $_config = $db->Search_Data_FormatJson($strSql);
+        $db->close_conn();
+        $_SESSION['s_address'] = $_config[0][s_address];
+        $_SESSION['s_logo'] = $_config[0][s_logo];
+        $_SESSION['s_sign'] = $_config[0][s_sign];
+        $_SESSION['s_name'] = $_config[0][s_name];
+        
+        
         return $_data;
     }
 

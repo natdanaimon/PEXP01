@@ -27,7 +27,7 @@ $app->map(['GET', 'POST'], '/Config/Save', function($request, $response) use($db
     if ($util->isEmpty($r['s_address'])) {
         return $response->getBody()->write($util->resp(2002, $util->setMsg(L::lb_address, L::Err_2002)));
     } else if ($util->isSpecialChar($r['s_address'])) {
-        return $response->getBody()->write($util->resp(2006, $util->setMsg(L::lb_address, L::Err_2006)));
+        //return $response->getBody()->write($util->resp(2006, $util->setMsg(L::lb_address, L::Err_2006)));
     }
     
     

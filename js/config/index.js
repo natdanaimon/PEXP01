@@ -23,6 +23,7 @@ function inquiryConfig() {
         success: function (data) {
             if (isSuccess(data)) {
                 var res = data.bean[0];
+                $('#s_name').val(res.s_name);
                 $('#s_address').text(res.s_address);
                 $('#blah-s_logo').attr('src','../../image/logo/'+res.s_logo);
                 $('#blah-s_sign').attr('src','../../image/sign/'+res.s_sign);
