@@ -136,12 +136,12 @@ $_POST[d_finish] = date('d-m-Y',strtotime($_POST[d_finish]));
 							</td>
 							<td valign="top">
 								<div>
-									<table cellpadding="5">
+									<table cellpadding="3">
 										<tr>
-											<td width="40">
+											<td width="45">
 												<img src="../../image/line.png" width="30"/>
 											</td>
-											<td>
+											<td align="left">
 												@minnie.bns
 											</td>
 										</tr>
@@ -149,7 +149,7 @@ $_POST[d_finish] = date('d-m-Y',strtotime($_POST[d_finish]));
 											<td>
 												<img src="../../image/phone.png" width="30"/>
 											</td>
-											<td>
+											<td align="left">
 												06-4239-8291
 											</td>
 										</tr>
