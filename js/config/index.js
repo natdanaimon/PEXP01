@@ -79,7 +79,6 @@ function save() {
 
 
 function putImage(id) {
-    //    document.getElementById('file').click();
     $("#"+id).click();
 }
 
