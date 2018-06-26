@@ -24,6 +24,8 @@ function inquiryConfig() {
             if (isSuccess(data)) {
                 var res = data.bean[0];
                 $('#s_address').text(res.s_address);
+                $('#blah-s_logo').attr('src','../../image/logo/'+res.s_logo);
+                $('#blah-s_sign').attr('src','../../image/sign/'+res.s_sign);
                 
         
                 
@@ -41,7 +43,8 @@ function inquiryConfig() {
 
 function save() {
 
-    var jsonData = $("#form-action").serialize();
+    //var jsonData = $("#form-action").serialize();
+    var jsonData = new FormData($("#form-action")[0]);
 
     $.ajax({
         type: 'POST',
@@ -49,6 +52,8 @@ function save() {
         data: jsonData,
         dataType: 'json',
         cache: false,
+        contentType: false,
+        processData: false,
         beforeSend: function () {
             blockui_always();
         },
@@ -70,5 +75,13 @@ function save() {
 
     });
 }
+
+
+
+function putImage(id) {
+    //    document.getElementById('file').click();
+    $("#"+id).click();
+}
+
 
 

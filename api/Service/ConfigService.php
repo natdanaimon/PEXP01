@@ -17,6 +17,10 @@ class ConfigService {
     
 
     function update($db, $r) {
+        
+        
+        
+        
         $strSql = "";
         $strSql .= " update tb_config ";
         $strSql .= " set  "
@@ -24,6 +28,13 @@ class ConfigService {
 //                . " s_firstname='$r[s_firstname]' , "
 //                . " s_lastname='$r[s_lastname]' , "
 
+         if($r[s_logo]){
+				 	 $strSql .= " , s_logo ='".$r[s_logo]."' ";
+				 }
+				 if($r[s_sign]){
+				 	$strSql .= " , s_sign ='".$r[s_sign]."' ";
+				 }
+         
          $arr = array(
             array("query" => $strSql)
         );

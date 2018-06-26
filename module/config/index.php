@@ -113,10 +113,10 @@
                                                         <span class="require">*</span>
                                                     </label>
                                                     <div class="col-9">
-                                                        <img id="blah-image-upload" alt="your image"  src="../../image/logo/default.png" height="120" />
+                                                        <img id="blah-s_logo" onclick="putImage('s_logo')"style="cursor: pointer;" title="<?= L::lb_logo ?>" data-toggle="m-tooltip"  src="../../image/logo/default.png" height="120" />
                                                         <div id="image-preview">
-                                                            <label for="image-upload" id="image-label">Choose File</label>
-                                                            <input type="file" name="image" id="image-upload" onchange="readURL(this,'blah-image-upload');" />
+                                                            <label for="s_logo" id="image-s_logo" style="display: none;">Choose File</label>
+                                                            <input style="display: none;" type="file" name="s_logo" id="s_logo" onchange="readURL(this,'blah-s_logo');" />
                                                         </div>
                                                     </div>
                                                 </div>
@@ -127,10 +127,10 @@
                                                         <span class="require">*</span>
                                                     </label>
                                                     <div class="col-9">
-  																											<img id="blah-image-upload1" alt="your image"  src="../../image/logo/default.png" height="120" />
+  																											<img id="blah-s_sign"  onclick="putImage('s_sign')" style="cursor: pointer;" title="<?= L::lb_sign ?>" data-toggle="m-tooltip"  src="../../image/logo/default.png" height="120" />
                                                         <div id="image-preview">
-                                                            <label for="image-upload1" id="image-label1">Choose File</label>
-                                                            <input type="file" name="image" id="image-upload1" onchange="readURL(this,'blah-image-upload1');"  />
+                                                            <label for="s_sign" id="image-s_sign" style="display: none;">Choose File</label>
+                                                            <input style="display: none;" type="file" name="s_sign" id="s_sign" onchange="readURL(this,'blah-s_sign');"  />
                                                         </div>
                                                     </div>
                                                 </div>
