@@ -4,6 +4,8 @@
 <html lang="en" >
     <!-- begin::Head -->
     <?php include_once '../../templateds/templated-header.php'; ?>
+     
+
     <!-- end::Head -->
     <!-- end::Body -->
     <body  class="m-page--fluid m--skin- m-content--skin-light2 m-header--fixed m-header--fixed-mobile m-aside-left--enabled m-aside-left--skin-dark m-aside-left--fixed m-aside-left--offcanvas m-footer--push m-aside--offcanvas-default"  >     <!-- begin:: Page -->
@@ -111,9 +113,10 @@
                                                         <span class="require">*</span>
                                                     </label>
                                                     <div class="col-9">
+                                                        <img id="blah-image-upload" alt="your image"  src="../../image/logo/default.png" height="120" />
                                                         <div id="image-preview">
                                                             <label for="image-upload" id="image-label">Choose File</label>
-                                                            <input type="file" name="image" id="image-upload" />
+                                                            <input type="file" name="image" id="image-upload" onchange="readURL(this,'blah-image-upload');" />
                                                         </div>
                                                     </div>
                                                 </div>
@@ -124,12 +127,15 @@
                                                         <span class="require">*</span>
                                                     </label>
                                                     <div class="col-9">
+  																											<img id="blah-image-upload1" alt="your image"  src="../../image/logo/default.png" height="120" />
                                                         <div id="image-preview">
                                                             <label for="image-upload1" id="image-label1">Choose File</label>
-                                                            <input type="file" name="image" id="image-upload1" />
+                                                            <input type="file" name="image" id="image-upload1" onchange="readURL(this,'blah-image-upload1');"  />
                                                         </div>
                                                     </div>
                                                 </div>
+                                                
+                                                
 
                                             </div>
                                         </div>
@@ -186,6 +192,22 @@
 
 
         <script src="../../js/config/index.js" type="text/javascript"></script>
+        <script type="text/javascript">
+					function readURL(input,blah) {
+
+					  if (input.files && input.files[0]) {
+					    var reader = new FileReader();
+
+					    reader.onload = function(e) {
+					      $('#'+blah).attr('src', e.target.result);
+					    }
+
+					    reader.readAsDataURL(input.files[0]);
+					  }
+					}
+
+					
+				</script>
         <!--end::Page Snippets -->
     </body>
     <!-- end::Body -->
