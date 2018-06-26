@@ -3,9 +3,9 @@
 @session_start();
 
 $app->map(['GET', 'POST'], '/Config/InquiryConfig', function ($request, $response) use($db, $util) {
-    $service = new StaffService();
+    $service = new ConfigService();
 
-    $_data = $service->inquiryStaff($db);
+    $_data = $service->inquiryConfig($db);
     if ($_data != NULL) {
         return $response->getBody()->write($util->resp(0, L::Success_0, $_data));
     } else {
