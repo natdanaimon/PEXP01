@@ -74,9 +74,8 @@
                         <form class="m-form m-form--fit m-form--label-align-right"
                               id="form-action">
                             <div class="row">
-                                <input type="hidden" name="keyId" id="keyId"
-                                       value="<?= ($_POST[id] != NULL ? $_POST[id] : "") ?>" />
-                                <div class="col-lg-8">
+                                
+                                <div class="col-lg-12">
                                     <!--begin::Portlet-->
                                     <div class="m-portlet">
                                         <div class="m-portlet__head">
@@ -103,34 +102,7 @@
                                                     </div>
                                                 </div>	
 
-                                                <div class="form-group m-form__group row">
-                                                    <label for="example-text-input"
-                                                           class="col-3 col-form-label"> <?= L::lb_password ?>
-                                                        <span class="require">*</span></label>
-                                                    <div class="col-7">
-                                                        <div class="m-input-icon m-input-icon--right">
-                                                            <input type="password" class="form-control m-input" id="s_pass" name="s_pass" max="20">
-                                                            <span class="m-input-icon__icon m-input-icon__icon--right">
-                                                                <span>
-                                                                    <i class="la la-eye"></i>
-                                                                </span>
-                                                            </span>
-                                                        </div>
-
-                                                    </div>
-                                                </div>	
-
-                                                <div class="form-group m-form__group row">
-                                                    <label for="example-text-input"
-                                                           class="col-3 col-form-label"> <?= L::lb_levelUser ?>
-                                                        <span class="require">*</span>
-                                                    </label>
-                                                    <div class="col-9">
-                                                        <select class="custom-select form-control" id="level" 
-                                                                name="level">
-                                                        </select>
-                                                    </div>
-                                                </div>
+                                               
 
 
                                                 <div class="form-group m-form__group row">
@@ -143,53 +115,7 @@
                                                                value="">
                                                     </div>
                                                 </div>
-                                                <div class="form-group m-form__group row">
-                                                    <label for="example-text-input"
-                                                           class="col-3 col-form-label">  <?= L::lb_lastName ?>
-                                                        <span class="require">*</span></label>
-                                                    <div class="col-7">
-                                                        <input class="form-control m-input" type="text"
-                                                               id="s_lastname" name="s_lastname"
-                                                               value="">
-                                                    </div>
-                                                </div>
-
-
-
-
-                                                <div class="form-group m-form__group row">
-                                                    <label for="example-text-input"
-                                                           class="col-3 col-form-label">  <?= L::lb_phoneMobile ?>
-                                                        <span class="require">*</span></label>
-                                                    <div class="col-7">
-                                                        <input class="form-control m-input" type="text"
-                                                               id="s_phone" name="s_phone"
-                                                               value="">
-                                                    </div>
-                                                </div>
-
-
-                                                <div class="form-group m-form__group row">
-                                                    <label for="example-text-input"
-                                                           class="col-3 col-form-label"> <?= L::lb_email ?>
-                                                        <span class="require">*</span></label>
-                                                    <div class="col-7">
-                                                        <input class="form-control m-input" type="text"
-                                                               id="s_email" name="s_email" 
-                                                               value="">
-                                                    </div>
-                                                </div>	
-
-                                                <div class="form-group m-form__group row">
-                                                    <label for="example-text-input"
-                                                           class="col-3 col-form-label"> <?= L::lb_lineID ?>
-                                                    </label>
-                                                    <div class="col-7">
-                                                        <input class="form-control m-input" type="text"
-                                                               id="s_line" name="s_line"
-                                                               value="">
-                                                    </div>
-                                                </div>
+                                              
 
 
 
@@ -201,7 +127,7 @@
                                              align="center">
                                             <div class="m-form__actions m-form__actions">
                                                 <a href="index.php" class="btn btn-secondary"><?= L::btn_cancel ?></a>
-                                                <a href="javascript:save();" class="btn btn-primary" id="btn-mg-save"
+                                                <a href="javascript:Export();" class="btn btn-primary" id="btn-mg-save"
                                                    onclick=""><?= L::btn_save ?></a>
                                             </div>
                                             <?php if ($_POST[id] != NULL && $_POST[id] != "") { ?>
@@ -219,38 +145,7 @@
                                     <!--end::Portlet-->
 
                                 </div>
-                                <div class="col-lg-4">
-                                    <!--begin::Portlet-->
-                                    <div class="m-portlet">
-                                        <div class="m-portlet__head">
-                                            <div class="m-portlet__head-caption">
-                                                <div class="m-portlet__head-title">
-                                                    <span class="m-portlet__head-icon m--hide"> <i
-                                                            class="la la-gear"></i>
-                                                    </span>
-                                                    <h3 class="m-portlet__head-text"><?= L::lb_statusTitle ?></h3>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="m-form m-form--fit">
-                                            <div class="m-portlet__body">
-                                                <div class="form-group m-form__group row">
-                                                    <label for="example-text-input" class="col-2 col-form-label">
-                                                        <?= L::lb_status ?> <span
-                                                            class="require">*</span>
-                                                    </label>
-                                                    <div class="col-8">
-                                                        <select class="custom-select form-control" id="status"
-                                                                name="status">
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--end::Portlet-->
-                                </div>
+                                
                             </div>
                         </form>
                         <!--end::Form-->
@@ -277,7 +172,7 @@
         <!--<script src="../../assets/vendors/custom/fullcalendar/fullcalendar.bundle.js" type="text/javascript"></script>-->
         <!--end::Page Vendors -->  
         <!--begin::Page Snippets -->
-        <script src="../../js/staff/manage.js" type="text/javascript"></script>
+        <script src="../../js/bill/index.js" type="text/javascript"></script>
         <!--end::Page Snippets -->
     </body>
     <!-- end::Body -->

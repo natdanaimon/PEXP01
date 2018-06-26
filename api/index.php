@@ -37,6 +37,7 @@ require_once ('./Controller/CommonController.php');
 require_once ('./Controller/AuthenController.php');
 require_once ('./Controller/StaffController.php');
 require_once ('./Controller/ConfigController.php');
+require_once ('./Controller/BillController.php');
 
 
 
