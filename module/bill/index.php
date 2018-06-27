@@ -71,7 +71,7 @@
                     <!---------------------  START CONTENT  --------------------->
                     <div class="m-content">
                         <!--begin::Form-->
-                        <form class="m-form m-form--fit m-form--label-align-right" id="form-action" action="../../bill/export/index.php" target="_blank"  method="POST" enctype="multipart/form-data">
+                        <form class="m-form m-form--fit m-form--label-align-right" id="form-action" action="../../bill/export/?export=1" target="_blank"  method="POST" enctype="multipart/form-data">
                             <div class="row">
                                 
                                 <div class="col-lg-12">
