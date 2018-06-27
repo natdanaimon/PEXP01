@@ -47,7 +47,8 @@
         "download": "ดาวน์โหลด",
         "confirm": "ยืนยัน",
         "delete": "ลบ",
-        "add": "เพิ่ม"
+        "add": "เพิ่ม",
+        "exportBill": "ออกบิล"
     },
     "status": {
         "all": "ทั้งหมด",

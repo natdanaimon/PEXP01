@@ -47,7 +47,8 @@
         "download": "Download",
         "confirm": "Confirm",
         "delete": "Delete",
-        "add": "Add"
+        "add": "Add",
+        "exportBill": "Export Bill"
     },
     "status": {
         "all": "All",

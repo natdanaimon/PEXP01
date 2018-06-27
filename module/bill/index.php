@@ -225,7 +225,7 @@
                                         <div class="m-portlet__foot m-portlet__foot--fit" align="center">
                                             <div class="m-form__actions m-form__actions">
                                                 <a href="index.php" class="btn btn-secondary"><?= L::btn_cancel ?></a>
-                                                <button type="submit" class="btn btn-primary" id="btn-mg-save"><?= L::btn_save ?></button>
+                                                <button type="submit" class="btn btn-primary" id="btn-mg-save"><?= L::btn_exportBill ?></button>
                                             </div>
                                             <?php if ($_POST[id] != NULL && $_POST[id] != "") { ?>
                                                 <div class="form-group m-form__group row">
