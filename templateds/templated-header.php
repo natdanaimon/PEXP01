@@ -18,7 +18,7 @@ try {
 }
 
 
-$contextPath = $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['SERVER_NAME'] . '/' . ($_SERVER['SERVER_NAME'] != 'localhost' ? "" : "PEXP01");
+$contextPath = $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['SERVER_NAME'] . '/' . ($_SERVER['SERVER_NAME'] != 'localhost' ? "PEXP01" : "PEXP01");
 $_SESSION['CONTEXT'] = $contextPath;
 
 if ($_SESSION[u_level] == NULL || $_SESSION[u_level] == "") {

@@ -4,7 +4,7 @@ $_SESSION["lang"] = 'th';
 
 
 
-$contextPath = $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['SERVER_NAME'] . '/' . ($_SERVER['SERVER_NAME'] != 'localhost' ? "" : "PEXP01");
+$contextPath = $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['SERVER_NAME'] . '/' . ($_SERVER['SERVER_NAME'] != 'localhost' ? "PEXP01" : "PEXP01");
 $_SESSION['CONTEXT'] = $contextPath;
 ?>
 <html lang="en" >
