@@ -122,7 +122,7 @@
                                                         <span class="require">*</span>
                                                     </label>
                                                     <div class="col-9">
-                                                        <img id="blah-s_logo" onclick="putImage('s_logo')"style="cursor: pointer;" title="<?= L::lb_logo ?>" data-toggle="m-tooltip"  src="../../image/logo/default.png" height="120" />
+                                                        <img id="blah-s_logo" onclick="putImage('s_logo')"style="cursor: pointer;" title="<?= L::lb_logo ?>" data-toggle="m-tooltip"  src="../../image/noimage.gif" height="120" />
                                                         <div id="image-preview">
                                                             <label for="s_logo" id="image-s_logo" style="display: none;">Choose File</label>
                                                             <input style="display: none;" type="file" name="s_logo" id="s_logo" onchange="readURL(this,'blah-s_logo');" accept=".jpg,.jpeg,.gif,.png" />
@@ -136,7 +136,7 @@
                                                         <span class="require">*</span>
                                                     </label>
                                                     <div class="col-9">
-  																											<img id="blah-s_sign"  onclick="putImage('s_sign')" style="cursor: pointer;" title="<?= L::lb_sign ?>" data-toggle="m-tooltip"  src="../../image/logo/default.png" height="120" />
+  																											<img id="blah-s_sign"  onclick="putImage('s_sign')" style="cursor: pointer;" title="<?= L::lb_sign ?>" data-toggle="m-tooltip"  src="../../image/logo/noimage.gif" height="120" />
                                                         <div id="image-preview">
                                                             <label for="s_sign" id="image-s_sign" style="display: none;">Choose File</label>
                                                             <input style="display: none;" type="file" name="s_sign" id="s_sign" onchange="readURL(this,'blah-s_sign');" accept=".jpg,.jpeg,.gif,.png"  />
