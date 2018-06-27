@@ -51,7 +51,7 @@ $_POST[d_finish] = date('d-m-Y',strtotime($_POST[d_finish]));
 		</tr>
 		<tr><td height="10" colspan="2"></td></tr>
 		<tr>
-			<td>
+			<td valign="top">
 				<?php
 				if($_FILES["s_product"]["name"]){
 					echo sprintf('<img src="data:image/png;base64,%s" width="230"  />', base64_encode($s_product));
