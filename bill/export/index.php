@@ -248,6 +248,10 @@ $mpdf = new \Mpdf\Mpdf([
 	'default_font_size' => 15,
 	'default_font' => 'thsarabunnew'
 ]);
+
+
+$mpdf->SetWatermarkText('      Minnie Brand Name ');
+$mpdf->showWatermarkText = true;
 $mpdf->WriteHTML($output);
-$mpdf->Output();
+$mpdf->Output($_POST[s_name].'.pdf','I');
 ?>
