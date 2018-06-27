@@ -128,41 +128,48 @@ $_POST[d_finish] = date('d-m-Y',strtotime($_POST[d_finish]));
 				<div style="border: 1px solid #000; padding: 5px;">
 					<table>
 						<tr>
-							<td valign="top" align="center">
-								<!-- QR Code -->
-								<img src="../../image/qrcode.jpg"/>
-								<br />
-								<span class="label-success" style="font-size: 14px;">Scan QR Code</span>
-							</td>
-							<td valign="top">
-								<div>
-									<table cellpadding="3">
-										<tr>
-											<td width="45">
-												<img src="../../image/line.png" width="30"/>
-											</td>
-											<td align="left">
-												@minnie.bns
-											</td>
-										</tr>
-										<tr>
-											<td>
-												<img src="../../image/phone.png" width="30"/>
-											</td>
-											<td align="left">
-												06-4239-8291
-											</td>
-										</tr>
-										<tr>
-											<td colspan="2">
-												<?=$s_address;?>
-											</td>
-										</tr>
-									</table>
-								</div>
+							<td style="border: 1px solid #000; padding: 5px;">
+								<table>
+									<tr>
+										<td valign="top" align="center">
+											<!-- QR Code -->
+											<img src="../../image/qrcode.jpg"/>
+											<br />
+											<span class="label-success" style="font-size: 14px;">Scan QR Code</span>
+										</td>
+										<td valign="top">
+											<div>
+												<table cellpadding="3">
+													<tr>
+														<td width="45">
+															<img src="../../image/line.png" width="30"/>
+														</td>
+														<td align="left">
+															@minnie.bns
+														</td>
+													</tr>
+													<tr>
+														<td>
+															<img src="../../image/phone.png" width="30"/>
+														</td>
+														<td align="left">
+															06-4239-8291
+														</td>
+													</tr>
+													<tr>
+														<td colspan="2">
+															<?=$s_address;?>
+														</td>
+													</tr>
+												</table>
+											</div>
+										</td>
+									</tr>
+								</table>
 							</td>
 						</tr>
 					</table>
+					
 				</div>
 
 					<table>
