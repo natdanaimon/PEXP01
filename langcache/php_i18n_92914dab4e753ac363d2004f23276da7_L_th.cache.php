@@ -35,6 +35,7 @@ const btn_download = 'ดาวน์โหลด';
 const btn_confirm = 'ยืนยัน';
 const btn_delete = 'ลบ';
 const btn_add = 'เพิ่ม';
+const btn_exportBill = 'ออกบิล';
 const status_all = 'ทั้งหมด';
 const status_pending = 'รอดำเนินการ';
 const status_cancel = 'ยกเลิก';
