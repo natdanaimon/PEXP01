@@ -9,11 +9,12 @@ function calculator_per($pPos,$pEarned){
 $total = ($pPos*$pEarned) / 100;
 return $total;
 }
+$title_name = date('ymdHis').'_'.$_POST[s_name];
 ob_start();
 ?>
 <html lang="en" >
     <!-- begin::Head -->
- 
+ 		<title><?=$title_name;?></title>
     <!-- end::Head -->
     <!-- end::Body -->
     <body  class=""  >     <!-- begin:: Page -->
@@ -250,8 +251,8 @@ $mpdf = new \Mpdf\Mpdf([
 ]);
 
 
-$mpdf->SetWatermarkText('      Minnie Brand Name ');
+$mpdf->SetWatermarkText('       Minnie Brand Name ');
 $mpdf->showWatermarkText = true;
 $mpdf->WriteHTML($output);
-$mpdf->Output($_POST[s_name].'.pdf','I');
+$mpdf->Output($title_name.'.pdf','I');
 ?>
