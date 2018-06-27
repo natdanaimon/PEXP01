@@ -77,6 +77,16 @@ const lb_lastUpdateDate = 'วันที่แก้ไขล่าสุด';
 const lb_address = 'ที่อยู่';
 const lb_logo = 'รูปโลโก้';
 const lb_sign = 'ลายเซ็น';
+const lb_product = 'รูปสินค้า';
+const lb_slip = 'รูปสลิป';
+const lb_name = 'ชื่อผู้ฝากสินค้า';
+const lb_type = 'ประเภทสินค้า';
+const lb_price = 'ราคาวาง';
+const lb_commission = 'ค่าดำเนินการ';
+const lb_vat = 'อัตราดอกเบี้ย';
+const lb_balance = 'ยอดคงเหลือ';
+const lb_refund = 'ยอดชำระคืน';
+const lb_dateFinish = 'วันครบกำหนด';
 const badRequest_9001 = 'ไม่มีสิทธิ์สำหรับการใช้งาน';
 public static function __callStatic($string, $args) {
     return vsprintf(constant("self::" . $string), $args);
