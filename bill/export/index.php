@@ -23,6 +23,13 @@ if($_POST['s_name']){
 $s_product = file_get_contents($_FILES["s_product"]["tmp_name"]); 
 $s_slip = file_get_contents($_FILES["s_slip"]["tmp_name"]); 
 
+
+$typeproduct = explode('.', $_FILES["s_product"]["name"]);
+$typeproduct = strtolower($typeproduct[count($typeproduct)-1]);
+
+$typeslip = explode('.', $_FILES["s_slip"]["name"]);
+$typeslip = strtolower($typeslip[count($typeslip)-1]);
+
 $price = $_POST[i_price];
 $com = $_POST[i_commission1];
 $vat = $_POST[i_vat1];
@@ -54,7 +61,7 @@ $_POST[d_finish] = date('d-m-Y',strtotime($_POST[d_finish]));
 			<td valign="top">
 				<?php
 				if($_FILES["s_product"]["name"]){
-					echo sprintf('<img src="data:image/png;base64,%s" width="230"  />', base64_encode($s_product));
+					echo sprintf('<img src="data:image/'.$typeproduct.';base64,%s" width="230"  />', base64_encode($s_product));
 				}else{
 					?>
 					<img src="../../image/noimage.gif" width="230" />
@@ -66,7 +73,7 @@ $_POST[d_finish] = date('d-m-Y',strtotime($_POST[d_finish]));
 				<br />
 				<?php
 				if($_FILES["s_slip"]["name"]){
-				echo sprintf('<img src="data:image/png;base64,%s" width="230"  />', base64_encode($s_slip));
+				echo sprintf('<img src="data:image/'.$typeslip.';base64,%s" width="230"  />', base64_encode($s_slip));
 				}else{
 					?>
 					<img src="../../image/noimage.gif" width="230" />
