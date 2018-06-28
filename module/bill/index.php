@@ -88,17 +88,18 @@
                                         </div>
 
                                         <div class="m-portlet__body">
+                                            
                                             <div class="m-form__section m-form__section--first">
                                             <div class="row">
-                                            	<div class="col-5">
+                                            	<!-- DIV LEFT -->
+                                            	<div class="col-md-4">
                                             		<div class="row">
-                                            			<div class="col-12">
+                                            			<div class="col-md-12">
 		                                                <div class="form-group m-form__group row">
-		                                                    <label for="example-text-input"
-		                                                           class="col-3 col-form-label"> <?= L::lb_product ?>
+		                                                    <label for="example-text-input" class="col-md-4 col-form-label"> <?= L::lb_product ?>
 		                                                        <span class="require">*</span>
 		                                                    </label>
-		                                                    <div class="col-9">
+		                                                    <div class="col-md-8">
 		                                                        <img id="blah-s_product" onclick="putImage('s_product')"style="cursor: pointer;" title="<?= L::lb_product ?>" data-toggle="m-tooltip"  src="../../image/noimage.gif" width="150" />
 		                                                        <div id="image-preview">
 		                                                            <label for="s_product" id="image-s_product" style="display: none;">Choose File</label>
@@ -111,13 +112,13 @@
                                               	<br />
                                               	<br />
                                               	<div class="row">
-                                              		<div class="col-12">
+                                              		<div class="col-md-12">
 		                                              	<div class="form-group m-form__group row">
 		                                                    <label for="example-text-input"
-		                                                           class="col-3 col-form-label"> <?= L::lb_slip ?>
+		                                                           class="col-md-4 col-form-label"> <?= L::lb_slip ?>
 		                                                        <span class="require">*</span>
 		                                                    </label>
-		                                                    <div class="col-9">
+		                                                    <div class="col-md-8">
 		                                                        <img id="blah-s_slip" onclick="putImage('s_slip')"style="cursor: pointer;" title="<?= L::lb_slip ?>" data-toggle="m-tooltip"  src="../../image/noimage.gif" width="150" />
 		                                                        <div id="image-preview">
 		                                                            <label for="s_slip" id="image-s_slip" style="display: none;">Choose File</label>
@@ -128,44 +129,45 @@
 	                                                </div>
                                                 </div>
                                               </div>
-                                              <div class="col-7">
+                                              <!-- DIV RIGHT -->
+                                              <div class="col-md-8">
                                                 <div class="form-group m-form__group row" style="padding-top: 5px;padding-bottom: 5px;">
                                                     <label for="example-text-input"
-                                                           class="col-4 col-form-label"> <?= L::lb_name ?>
+                                                           class="col-md-4 col-form-label"> <?= L::lb_name ?>
                                                         <span class="require">*</span></label>
-                                                    <div class="col-7">
+                                                    <div class="col-md-8">
                                                         <input class="form-control m-input" type="text" id="s_name" name="s_name" required="required">
                                                     </div>
                                                 </div>
                                                 <div class="form-group m-form__group row" style="padding-top: 5px;padding-bottom: 5px;">
                                                     <label for="example-text-input"
-                                                           class="col-4 col-form-label"> <?= L::lb_phoneMobile ?>
+                                                           class="col-md-4 col-form-label"> <?= L::lb_phoneMobile ?>
                                                         <span class="require">*</span></label>
-                                                    <div class="col-7">
+                                                    <div class="col-md-8">
                                                         <input class="form-control m-input" type="text" id="s_phone" name="s_phone" required="required">
                                                     </div>
                                                 </div>
                                                 <div class="form-group m-form__group row" style="padding-top: 5px;padding-bottom: 5px;">
                                                     <label for="example-text-input"
-                                                           class="col-4 col-form-label"> <?= L::lb_type ?>
+                                                           class="col-md-4 col-form-label"> <?= L::lb_type ?>
                                                         <span class="require">*</span></label>
-                                                    <div class="col-7">
+                                                    <div class="col-md-8">
                                                         <input class="form-control m-input" type="text" id="s_type" name="s_type" required="required">
                                                     </div>
                                                 </div>
                                                 <div class="form-group m-form__group row" style="padding-top: 5px;padding-bottom: 5px;">
                                                     <label for="example-text-input"
-                                                           class="col-4 col-form-label"> <?= L::lb_price ?>
+                                                           class="col-md-4 col-form-label"> <?= L::lb_price ?>
                                                         <span class="require">*</span></label>
-                                                    <div class="col-7">
+                                                    <div class="col-md-8">
                                                         <input class="form-control m-input" type="number" id="i_price" name="i_price" required="required"  onkeyup="calculator();" onblur="calculator();"/>
                                                     </div>
                                                 </div>
                                                 <div class="form-group m-form__group row" style="padding-top: 5px;padding-bottom: 5px;">
                                                     <label for="example-text-input"
-                                                           class="col-4 col-form-label"> <?= L::lb_commission ?>
+                                                           class="col-md-4 col-form-label"> <?= L::lb_commission ?>
                                                         <span class="require"></span></label>
-                                                    <div class="col-3">
+                                                    <div class="col-md-3">
                                                     	<table>
                                                     		<tr>
                                                     			<td><input class="form-control m-input" type="number" id="i_commission1" name="i_commission1" value="3"  onkeyup="calculator();" onblur="calculator();"></td>
@@ -173,15 +175,15 @@
                                                     		</tr>
                                                     	</table>
                                                     </div>
-                                                    <div class="col-4">
+                                                    <div class="col-md-5">
                                                         <input class="form-control m-input" disabled="disabled" type="number" id="i_commission" name="i_commission">
                                                     </div>
                                                 </div>
                                                 <div class="form-group m-form__group row" style="padding-top: 5px;padding-bottom: 5px;">
                                                     <label for="example-text-input"
-                                                           class="col-4 col-form-label"> <?= L::lb_vat ?>
+                                                           class="col-md-4 col-form-label"> <?= L::lb_vat ?>
                                                         <span class="require"></span></label>
-                                                    <div class="col-3">
+                                                    <div class="col-md-3">
                                                     	<table>
                                                     		<tr>
                                                     			<td><input class="form-control m-input" type="number" id="i_vat1" name="i_vat1" value="7"  onkeyup="calculator();" onblur="calculator();"></td>
@@ -189,31 +191,31 @@
                                                     		</tr>
                                                     	</table>
                                                     </div>
-                                                    <div class="col-4">
+                                                    <div class="col-md-5">
                                                         <input class="form-control m-input" disabled="disabled" type="number" id="i_vat" name="i_vat" >
                                                     </div>
                                                 </div>
                                                 <div class="form-group m-form__group row" style="padding-top: 5px;padding-bottom: 5px;">
                                                     <label for="example-text-input"
-                                                           class="col-4 col-form-label"> <?= L::lb_balance ?>
+                                                           class="col-md-4 col-form-label"> <?= L::lb_balance ?>
                                                         <span class="require"></span></label>
-                                                    <div class="col-7">
+                                                    <div class="col-md-8">
                                                         <input class="form-control m-input" disabled="disabled" type="number" id="i_balance" name="i_balance">
                                                     </div>
                                                 </div>
                                                 <div class="form-group m-form__group row" style="padding-top: 5px;padding-bottom: 5px;">
                                                     <label for="example-text-input"
-                                                           class="col-4 col-form-label"> <?= L::lb_refund ?>
+                                                           class="col-md-4 col-form-label"> <?= L::lb_refund ?>
                                                         <span class="require"></span></label>
-                                                    <div class="col-7">
+                                                    <div class="col-md-8">
                                                         <input class="form-control m-input" disabled="disabled" type="number" id="i_refund" name="i_refund">
                                                     </div>
                                                 </div>
                                                 <div class="form-group m-form__group row" style="padding-top: 5px;padding-bottom: 5px;">
                                                     <label for="example-text-input"
-                                                           class="col-4 col-form-label"> <?= L::lb_dateFinish ?>
+                                                           class="col-md-4 col-form-label"> <?= L::lb_dateFinish ?>
                                                         <span class="require">*</span></label>
-                                                    <div class="col-7">
+                                                    <div class="col-md-8">
                                                         <input class="form-control m-input" type="date" id="d_finish" name="d_finish" required="required" value="<?=date('Y-m-d');?>">
                                                     </div>
                                                 </div>

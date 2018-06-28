@@ -97,20 +97,19 @@
 
                                                 <div class="form-group m-form__group row">
                                                     <label for="example-text-input"
-                                                           class="col-3 col-form-label"> ชื่อ
+                                                           class="col-md-4 col-form-label"> ชื่อ
                                                         <span class="require">*</span></label>
-                                                    <div class="col-7">
+                                                    <div class="col-md-8">
                                                        <input type="text" name="s_name" id="s_name" class="form-control m-input"/>
                                                     </div>
                                                 </div>	
                                                 
                                                 <div class="form-group m-form__group row">
                                                     <label for="example-text-input"
-                                                           class="col-3 col-form-label"> <?= L::lb_address ?>
+                                                           class="col-md-4 col-form-label"> <?= L::lb_address ?>
                                                         <span class="require">*</span></label>
-                                                    <div class="col-7">
-                                                        <textarea class="form-control m-input" type="text"
-                                                                  id="s_address" name="s_address" > </textarea>
+                                                    <div class="col-md-8">
+                                                        <textarea class="form-control m-input" rows="4" id="s_address" name="s_address" > </textarea>
                                                     </div>
                                                 </div>	
 
@@ -118,11 +117,11 @@
 
                                                 <div class="form-group m-form__group row">
                                                     <label for="example-text-input"
-                                                           class="col-3 col-form-label"> <?= L::lb_logo ?>
+                                                           class="col-md-4 col-form-label"> <?= L::lb_logo ?>
                                                         <span class="require">*</span>
                                                     </label>
-                                                    <div class="col-9">
-                                                        <img id="blah-s_logo" onclick="putImage('s_logo')"style="cursor: pointer;" title="<?= L::lb_logo ?>" data-toggle="m-tooltip"  src="../../image/noimage.gif" height="120" />
+                                                    <div class="col-md-8">
+                                                        <img class="col-md-10" id="blah-s_logo" onclick="putImage('s_logo')"style="cursor: pointer;" title="<?= L::lb_logo ?>" data-toggle="m-tooltip"  src="../../image/noimage.gif" height="120" />
                                                         <div id="image-preview">
                                                             <label for="s_logo" id="image-s_logo" style="display: none;">Choose File</label>
                                                             <input style="display: none;" type="file" name="s_logo" id="s_logo" onchange="readURL(this,'blah-s_logo');" accept=".jpg,.jpeg,.gif,.png" />
@@ -132,11 +131,11 @@
 
                                                 <div class="form-group m-form__group row">
                                                     <label for="example-text-input"
-                                                           class="col-3 col-form-label"> <?= L::lb_sign ?>
+                                                           class="col-md-4 col-form-label"> <?= L::lb_sign ?>
                                                         <span class="require">*</span>
                                                     </label>
-                                                    <div class="col-9">
-  																											<img id="blah-s_sign"  onclick="putImage('s_sign')" style="cursor: pointer;" title="<?= L::lb_sign ?>" data-toggle="m-tooltip"  src="../../image/noimage.gif" height="120" />
+                                                    <div class="col-md-8">
+  																											<img class="col-md-10" id="blah-s_sign"  onclick="putImage('s_sign')" style="cursor: pointer;" title="<?= L::lb_sign ?>" data-toggle="m-tooltip"  src="../../image/noimage.gif" height="120" />
                                                         <div id="image-preview">
                                                             <label for="s_sign" id="image-s_sign" style="display: none;">Choose File</label>
                                                             <input style="display: none;" type="file" name="s_sign" id="s_sign" onchange="readURL(this,'blah-s_sign');" accept=".jpg,.jpeg,.gif,.png"  />
