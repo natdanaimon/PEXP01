@@ -4,7 +4,7 @@ $_SESSION["lang"] = 'th';
 
 
 
-$contextPath = $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['SERVER_NAME'] . '/' . ($_SERVER['SERVER_NAME'] != 'localhost' ? "PEXP01" : "PEXP01");
+$contextPath = $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['SERVER_NAME'] . '/' . ($_SERVER['SERVER_NAME'] != 'minniesurgery.com' ? "ticket" : "ticket");
 $_SESSION['CONTEXT'] = $contextPath;
 ?>
 <html lang="en" >
@@ -41,7 +41,8 @@ $_SESSION['CONTEXT'] = $contextPath;
     <body class="m--skin- m-header--fixed m-header--fixed-mobile m-aside-left--enabled m-aside-left--skin-dark m-aside-left--offcanvas m-footer--push m-aside--offcanvas-default"  >
         <!-- begin:: Page -->
         <div class="m-grid m-grid--hor m-grid--root m-page">
-            <div class="m-grid__item m-grid__item--fluid m-grid m-grid--hor m-login m-login--signin m-login--2 m-login-2--skin-2" id="m_login" style="background-image: url(assets/app/media/img//bg/bg-3.jpg);">
+            <!--<div class="m-grid__item m-grid__item--fluid m-grid m-grid--hor m-login m-login--signin m-login--2 m-login-2--skin-2" id="m_login" style="background-image: url(assets/app/media/img//bg/bg-1.jpg);">-->
+            <div class="m-grid__item m-grid__item--fluid m-grid m-grid--hor m-login m-login--signin m-login--2 m-login-2--skin-2" id="m_login" style="background-color: #292b3a;">
                 <div class="m-grid__item m-grid__item--fluid	m-login__wrapper">
                     <div class="m-login__container">
                         <div class="m-login__logo">

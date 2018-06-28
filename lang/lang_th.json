@@ -48,7 +48,7 @@
         "confirm": "ยืนยัน",
         "delete": "ลบ",
         "add": "เพิ่ม",
-        "exportBill": "ออกบิล"
+        "exportBill": "ออกบิลใบรับฝากสินค้า"
     },
     "status": {
         "all": "ทั้งหมด",

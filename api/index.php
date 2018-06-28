@@ -19,7 +19,9 @@ $app = new \Slim\App();
 $app->add(function ($request, $response, $next) use ($util) {
     if (strpos($request->getUri(), '/Authen/Login') !== false) {
         $response = $next($request, $response);
-    } else if ($util->isBadRequest()) {
+    }else if (strpos($request->getUri(), '/Authen/Rundb') !== false) {
+    	$response = $next($request, $response);
+		} else if ($util->isBadRequest()) {
         $response->getBody()->write($util->resp(9001, L::badRequest_9001));
         return $response;
     } else {

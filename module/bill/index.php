@@ -100,10 +100,10 @@
 		                                                        <span class="require">*</span>
 		                                                    </label>
 		                                                    <div class="col-md-8">
-		                                                        <img id="blah-s_product" onclick="putImage('s_product')"style="cursor: pointer;" title="<?= L::lb_product ?>" data-toggle="m-tooltip"  src="../../image/noimage.gif" width="150" />
+		                                                        <img id="blah-s_product" onclick="putImage('s_product')"style="cursor: pointer;" title="<?= L::lb_product ?>"  src="../../image/noimage.gif" width="150" />
 		                                                        <div id="image-preview">
 		                                                            <label for="s_product" id="image-s_product" style="display: none;">Choose File</label>
-		                                                            <input style="display: none;" type="file" name="s_product" id="s_product" onchange="readURL(this,'blah-s_product');" accept=".jpg,.jpeg,.gif,.png" />
+		                                                            <input class="m–hidden-desktop"   type="file" name="s_product" id="s_product" onchange="readURL(this,'blah-s_product');" accept=".jpg,.jpeg,.gif,.png" />
 		                                                        </div>
 		                                                    </div>
 		                                                </div>
@@ -119,10 +119,10 @@
 		                                                        <span class="require">*</span>
 		                                                    </label>
 		                                                    <div class="col-md-8">
-		                                                        <img id="blah-s_slip" onclick="putImage('s_slip')"style="cursor: pointer;" title="<?= L::lb_slip ?>" data-toggle="m-tooltip"  src="../../image/noimage.gif" width="150" />
+		                                                        <img id="blah-s_slip" onclick="putImage('s_slip')"style="cursor: pointer;" title="<?= L::lb_slip ?>"   src="../../image/noimage.gif" width="150" />
 		                                                        <div id="image-preview">
 		                                                            <label for="s_slip" id="image-s_slip" style="display: none;">Choose File</label>
-		                                                            <input style="display: none;" type="file" name="s_slip" id="s_slip" onchange="readURL(this,'blah-s_slip');" accept=".jpg,.jpeg,.gif,.png" />
+		                                                            <input class="m–hidden-desktop"   type="file" name="s_slip" id="s_slip" onchange="readURL(this,'blah-s_slip');" accept=".jpg,.jpeg,.gif,.png" />
 		                                                        </div>
 		                                                    </div>
 		                                                </div>

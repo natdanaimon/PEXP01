@@ -1,5 +1,6 @@
 <?php
 @session_start();
+set_time_limit(300000000000);
 $s_address = $_SESSION['s_address'];
 $s_logo = $_SESSION['s_logo'];
 $s_sign = $_SESSION['s_sign'];
@@ -9,6 +10,49 @@ function calculator_per($pPos,$pEarned){
 $total = ($pPos*$pEarned) / 100;
 return $total;
 }
+
+function resize($newWidth, $targetFile, $originalFile) {
+
+    $info = getimagesize($originalFile);
+    $mime = $info['mime'];
+
+    switch ($mime) {
+            case 'image/jpeg':
+                    $image_create_func = 'imagecreatefromjpeg';
+                    $image_save_func = 'imagejpeg';
+                    $new_image_ext = 'jpg';
+                    break;
+
+            case 'image/png':
+                    $image_create_func = 'imagecreatefrompng';
+                    $image_save_func = 'imagepng';
+                    $new_image_ext = 'png';
+                    break;
+
+            case 'image/gif':
+                    $image_create_func = 'imagecreatefromgif';
+                    $image_save_func = 'imagegif';
+                    $new_image_ext = 'gif';
+                    break;
+
+            default: 
+                    throw new Exception('Unknown image type.');
+    }
+
+    $img = $image_create_func($originalFile);
+    list($width, $height) = getimagesize($originalFile);
+
+    $newHeight = ($height / $width) * $newWidth;
+    $tmp = imagecreatetruecolor($newWidth, $newHeight);
+    imagecopyresampled($tmp, $img, 0, 0, 0, 0, $newWidth, $newHeight, $width, $height);
+
+    if (file_exists($targetFile)) {
+            unlink($targetFile);
+    }
+    $image_save_func($tmp, "$targetFile.$new_image_ext");
+}
+
+
 $title_name = date('ymdHis').'_'.$_POST[s_name];
 ob_start();
 ?>
@@ -45,6 +89,29 @@ $balance = $price-$t_total;
 $_POST[d_finish] = date('d-m-Y',strtotime($_POST[d_finish]));
 
 
+if($_FILES["s_product"]["name"]){
+			$type = explode('.', $_FILES["s_product"]["name"]);
+			$type = strtolower($type[count($type)-1]);
+			$url = "../../image/pdf/product/";
+			$name = 'default.'.$type;
+			if(in_array($type, array("jpg", "jpeg", "gif", "png")))
+				if(is_uploaded_file($_FILES["s_product"]["tmp_name"]))
+					if(move_uploaded_file($_FILES["s_product"]["tmp_name"],$url.$name))
+			$s_product =  $name;
+		}
+		
+if($_FILES["s_slip"]["name"]){
+			$type = explode('.', $_FILES["s_slip"]["name"]);
+			$type = strtolower($type[count($type)-1]);
+			$url = "../../image/pdf/slip/";
+			$name = 'default.'.$type;
+			if(in_array($type, array("jpg", "jpeg", "gif", "png")))
+				if(is_uploaded_file($_FILES["s_slip"]["tmp_name"]))
+					if(move_uploaded_file($_FILES["s_slip"]["tmp_name"],$url.$name))
+			$s_slip =  $name;
+		}		
+		
+echo getimagesize($_FILES["s_slip"]["tmp_name"]);
 ?>
 <div style=" min-height: 1123px;    padding: 10px;"  >
 	<div style="border: 1px solid #ccc; padding: 10px;"align="center">
@@ -62,7 +129,10 @@ $_POST[d_finish] = date('d-m-Y',strtotime($_POST[d_finish]));
 			<td valign="top">
 				<?php
 				if($_FILES["s_product"]["name"]){
-					echo sprintf('<img src="data:image/'.$typeproduct.';base64,%s" width="230"  />', base64_encode($s_product));
+					//echo sprintf('<img src="data:image/'.$typeproduct.';base64,%s" width="230"  />', base64_encode($s_product));
+				?>
+				<img src="../../image/pdf/product/<?=$s_product;?>?v=<?=time();?>" width="230" />
+				<?php
 				}else{
 					?>
 					<img src="../../image/noimage.gif" width="230" />
@@ -74,7 +144,10 @@ $_POST[d_finish] = date('d-m-Y',strtotime($_POST[d_finish]));
 				<br />
 				<?php
 				if($_FILES["s_slip"]["name"]){
-				echo sprintf('<img src="data:image/'.$typeslip.';base64,%s" width="230"  />', base64_encode($s_slip));
+				//echo sprintf('<img src="data:image/'.$typeslip.';base64,%s" width="230"  />', base64_encode($s_slip));
+				?>
+				<img src="../../image/pdf/slip/<?=$s_slip;?>?v=<?=time();?>" width="230" />
+				<?php
 				}else{
 					?>
 					<img src="../../image/noimage.gif" width="230" />
@@ -242,7 +315,7 @@ $_POST[d_finish] = date('d-m-Y',strtotime($_POST[d_finish]));
 <?php
 $output = ob_get_contents();
 ob_end_clean();
-require_once __DIR__ . '/../../vendorPdf/autoload.php';
+require_once '../../vendorPdf/autoload.php';
 
 $mpdf = new \Mpdf\Mpdf([
 	'mode' => 'utf-8', 
@@ -253,6 +326,7 @@ $mpdf = new \Mpdf\Mpdf([
 
 $mpdf->SetWatermarkText('       Minnie_Brandname');
 $mpdf->showWatermarkText = true;
+//$mpdf->showImageErrors = true;
 $mpdf->WriteHTML($output);
 $mpdf->Output($title_name.'.pdf','I');
 ?>
