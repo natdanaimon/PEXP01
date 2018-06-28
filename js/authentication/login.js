@@ -35,7 +35,7 @@ function login() {
 
             notify_login(data);
             if (isSuccess(data)) {
-                window.location = contextPath + '/module/dashboard/index.php';
+                window.location = contextPath + '/module/bill/index.php';
             }
 
             unblockui();

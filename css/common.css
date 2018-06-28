@@ -1,4 +1,4 @@
-@font-face {
+/*@font-face {
     font-family: thsarabunnew;
     src: url(font/thsarabunnew-webfont.woff);
 }
@@ -9,7 +9,7 @@ body,input,select,textarea,radio,button,a{
 
 .m-subheader .m-subheader__title, .m-portlet .m-portlet__head .m-portlet__head-caption .m-portlet__head-title .m-portlet__head-text {
     font-family: thsarabunnew !important;
-}
+}*/
 
 .alert .close {
     font-family: LineAwesome !important;
