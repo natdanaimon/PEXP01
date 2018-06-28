@@ -251,7 +251,7 @@ $mpdf = new \Mpdf\Mpdf([
 ]);
 
 
-$mpdf->SetWatermarkText('       Minnie Brand Name ');
+$mpdf->SetWatermarkText('       Minnie_Brandname');
 $mpdf->showWatermarkText = true;
 $mpdf->WriteHTML($output);
 $mpdf->Output($title_name.'.pdf','I');
