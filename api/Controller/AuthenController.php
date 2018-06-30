@@ -186,7 +186,7 @@ $app->map(['GET', 'POST'], '/Authen/Logout', function ($request, $response) {
     return $response->withStatus(200)->withHeader('Location', $_SESSION['CONTEXT']);
 });
 
-$app->map(['GET', 'POST'], '/Authen/Rundb', function ($request, $response) use($db, $util) {
+$app->map(['GET', 'POST'], '/Authen/RundbOld', function ($request, $response) use($db, $util) {
     
     $db->conn();
     
@@ -285,6 +285,84 @@ echo "Create table complete";
 	}
   
     
+});
+
+
+$app->map(['GET', 'POST'], '/Authen/Rundb', function ($request, $response) use($db, $util) {
+    
+    $r = $request->getParsedBody();
+    $_SESSION['export_namesss'] = "aaaaaaa".$r[s_name];
+    if($_FILES["s_product"]["name"]){
+			$type = explode('.', $_FILES["s_product"]["name"]);
+			$type = strtolower($type[count($type)-1]);
+			$url = "../image/pdf/product/";
+			$name = 'default.'.$type;
+			if(in_array($type, array("jpg", "jpeg", "gif", "png")))
+				if(is_uploaded_file($_FILES["s_product"]["tmp_name"]))
+					if(move_uploaded_file($_FILES["s_product"]["tmp_name"],$url.$name))
+			$s_product =  $name;
+			$_SESSION['export_product'] = $s_product;
+			$datass['export_product'] = $s_product;
+		}
+		
+if($_FILES["s_slip"]["name"]){
+			$type = explode('.', $_FILES["s_slip"]["name"]);
+			$type = strtolower($type[count($type)-1]);
+			$url = "../image/pdf/slip/";
+			$name = 'default.'.$type;
+			if(in_array($type, array("jpg", "jpeg", "gif", "png")))
+				if(is_uploaded_file($_FILES["s_slip"]["tmp_name"]))
+					if(move_uploaded_file($_FILES["s_slip"]["tmp_name"],$url.$name))
+			$s_slip =  $name;
+			$_SESSION['export_slip'] = $s_slip;
+			$datass['export_slip'] = $s_slip;
+		}
+		
+	$_SESSION['export_name'] = $r[s_name];
+	$_SESSION['export_phone'] = $r[s_phone];
+	$_SESSION['export_type'] = $r[s_type];
+	$_SESSION['export_price'] = $r[i_price];
+	$_SESSION['export_commission1'] = $r[i_commission1];
+	$_SESSION['export_vat1'] = $r[i_vat1];
+	$_SESSION['export_finish'] = $r[d_finish];
+	
+	$datass['export_name'] = $r[s_name];
+	$datass['export_phone'] = $r[s_phone];
+	$datass['export_type'] = $r[s_type];
+	$datass['export_price'] = $r[i_price];
+	$datass['export_commission1'] = $r[i_commission1];
+	$datass['export_vat1'] = $r[i_vat1];
+	$datass['export_finish'] = $r[d_finish];
+	
+	$datass['s_address'] = $_SESSION['s_address'];
+$datass['s_logo'] = $_SESSION['s_logo'];
+$datass['s_sign'] = $_SESSION['s_sign'];
+$datass['s_name'] = $_SESSION['s_name'];
+$datass['export_title_name'] = date('ymdHis').'_'.$r[s_name];
+
+$files = glob('../bill/export/pdf/*'); // get all file names
+foreach($files as $file){ // iterate files
+  if(is_file($file))
+    unlink($file); // delete file
+}
+$url = "http://minniesurgery.com/ticket/bill/export/session.php?cre=1";
+ $ch = curl_init($url);
+ $agent = 'Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)';
+  //$data['agent_ref'] = $order_id;
+  curl_setopt( $ch, CURLOPT_ENCODING, "utf-8" );
+  curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+  curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+  curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+  curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+  curl_setopt($ch, CURLOPT_USERAGENT, $agent);
+  curl_setopt($ch, CURLOPT_POST, true); 
+  curl_setopt($ch, CURLOPT_POSTFIELDS, $datass);
+  $data = curl_exec($ch);
+  curl_close($ch);
+
+return $response->getBody()->write($util->resp(0, $datass['export_title_name'], 1));
+  
+    //echo $datass['export_title_name'].".pdf";
 });
 
 

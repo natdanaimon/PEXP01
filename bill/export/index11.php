@@ -10,6 +10,49 @@ function calculator_per($pPos,$pEarned){
 $total = ($pPos*$pEarned) / 100;
 return $total;
 }
+
+function resize($newWidth, $targetFile, $originalFile) {
+
+    $info = getimagesize($originalFile);
+    $mime = $info['mime'];
+
+    switch ($mime) {
+            case 'image/jpeg':
+                    $image_create_func = 'imagecreatefromjpeg';
+                    $image_save_func = 'imagejpeg';
+                    $new_image_ext = 'jpg';
+                    break;
+
+            case 'image/png':
+                    $image_create_func = 'imagecreatefrompng';
+                    $image_save_func = 'imagepng';
+                    $new_image_ext = 'png';
+                    break;
+
+            case 'image/gif':
+                    $image_create_func = 'imagecreatefromgif';
+                    $image_save_func = 'imagegif';
+                    $new_image_ext = 'gif';
+                    break;
+
+            default: 
+                    throw new Exception('Unknown image type.');
+    }
+
+    $img = $image_create_func($originalFile);
+    list($width, $height) = getimagesize($originalFile);
+
+    $newHeight = ($height / $width) * $newWidth;
+    $tmp = imagecreatetruecolor($newWidth, $newHeight);
+    imagecopyresampled($tmp, $img, 0, 0, 0, 0, $newWidth, $newHeight, $width, $height);
+
+    if (file_exists($targetFile)) {
+            unlink($targetFile);
+    }
+    $image_save_func($tmp, "$targetFile.$new_image_ext");
+}
+
+
 $title_name = date('ymdHis').'_'.$_POST[s_name];
 ob_start();
 ?>
@@ -67,6 +110,8 @@ if($_FILES["s_slip"]["name"]){
 					if(move_uploaded_file($_FILES["s_slip"]["tmp_name"],$url.$name))
 			$s_slip =  $name;
 		}		
+		
+echo getimagesize($_FILES["s_slip"]["tmp_name"]);
 ?>
 <div style=" min-height: 1123px;    padding: 10px;"  >
 	<div style="border: 1px solid #ccc; padding: 10px;"align="center">

@@ -1,72 +1,77 @@
 <?php
 @session_start();
 set_time_limit(300000000000);
+
+/*
 $s_address = $_SESSION['s_address'];
 $s_logo = $_SESSION['s_logo'];
 $s_sign = $_SESSION['s_sign'];
 $s_name = $_SESSION['s_name'];
 
+if($_SESSION['export_name']){
+	$_POST['s_name'] = $_SESSION['export_name'];
+	$_POST['s_phone'] = $_SESSION['export_phone'];
+	$_POST['s_type'] = $_SESSION['export_type'];
+	$_POST[i_price] = $_SESSION['export_price'];
+	$_POST[i_commission1] = $_SESSION['export_commission1'];
+	$_POST[i_vat1] = $_SESSION['export_vat1'];
+	$_POST[d_finish] = $_SESSION['export_finish'];
+}
+if($_SESSION['export_product']){
+	 $s_product =  $_SESSION['export_product'];
+}
+if($_SESSION['export_slip']){
+	$s_slip =  $_SESSION['export_slip'];
+}
+//*/
+
+$s_address = $_POST['s_address'];
+$s_logo = $_POST['s_logo'];
+$s_sign = $_POST['s_sign'];
+$s_name = $_POST['s_name'];
+
+if($_POST['export_name']){
+	$_POST['s_name'] = $_POST['export_name'];
+	$_POST['s_phone'] = $_POST['export_phone'];
+	$_POST['s_type'] = $_POST['export_type'];
+	$_POST[i_price] = $_POST['export_price'];
+	$_POST[i_commission1] = $_POST['export_commission1'];
+	$_POST[i_vat1] = $_POST['export_vat1'];
+	$_POST[d_finish] = $_POST['export_finish'];
+	$_POST[title_name] = $_POST['export_title_name'];
+}
+if($_POST['export_product']){
+	 $s_product =  $_POST['export_product'];
+}
+if($_POST['export_slip']){
+	$s_slip =  $_POST['export_slip'];
+}
+
+
 function calculator_per($pPos,$pEarned){
 $total = ($pPos*$pEarned) / 100;
 return $total;
 }
-$title_name = date('ymdHis').'_'.$_POST[s_name];
+ $title_name = $_POST[title_name];
+ //$title_name = date('ymdHis').'_'.$_POST[s_name];
 ob_start();
 ?>
 <html lang="en" >
-    <!-- begin::Head -->
- 		<title><?=$title_name;?></title>
-    <!-- end::Head -->
-    <!-- end::Body -->
-    <body  class=""  >     <!-- begin:: Page -->
+ 		<head>
+ 			<title><?=$title_name;?></title>
+ 		</head>
+    <body> 
 <?php
 if($_POST['s_name']){
-
-$s_product = file_get_contents($_FILES["s_product"]["tmp_name"]); 
-$s_slip = file_get_contents($_FILES["s_slip"]["tmp_name"]); 
-
-
-$typeproduct = explode('.', $_FILES["s_product"]["name"]);
-$typeproduct = strtolower($typeproduct[count($typeproduct)-1]);
-
-$typeslip = explode('.', $_FILES["s_slip"]["name"]);
-$typeslip = strtolower($typeslip[count($typeslip)-1]);
-
 $price = $_POST[i_price];
 $com = $_POST[i_commission1];
 $vat = $_POST[i_vat1];
-
 $t_com = calculator_per($price,$com);
 $t_vat = calculator_per($price,$vat);
 $t_total = $t_com+$t_vat;
 $balance = $price-$t_total;
-
-
-
 $_POST[d_finish] = date('d-m-Y',strtotime($_POST[d_finish]));
 
-
-if($_FILES["s_product"]["name"]){
-			$type = explode('.', $_FILES["s_product"]["name"]);
-			$type = strtolower($type[count($type)-1]);
-			$url = "../../image/pdf/product/";
-			$name = 'default.'.$type;
-			if(in_array($type, array("jpg", "jpeg", "gif", "png")))
-				if(is_uploaded_file($_FILES["s_product"]["tmp_name"]))
-					if(move_uploaded_file($_FILES["s_product"]["tmp_name"],$url.$name))
-			$s_product =  $name;
-		}
-		
-if($_FILES["s_slip"]["name"]){
-			$type = explode('.', $_FILES["s_slip"]["name"]);
-			$type = strtolower($type[count($type)-1]);
-			$url = "../../image/pdf/slip/";
-			$name = 'default.'.$type;
-			if(in_array($type, array("jpg", "jpeg", "gif", "png")))
-				if(is_uploaded_file($_FILES["s_slip"]["tmp_name"]))
-					if(move_uploaded_file($_FILES["s_slip"]["tmp_name"],$url.$name))
-			$s_slip =  $name;
-		}		
 ?>
 <div style=" min-height: 1123px;    padding: 10px;"  >
 	<div style="border: 1px solid #ccc; padding: 10px;"align="center">
@@ -83,8 +88,7 @@ if($_FILES["s_slip"]["name"]){
 		<tr>
 			<td valign="top">
 				<?php
-				if($_FILES["s_product"]["name"]){
-					//echo sprintf('<img src="data:image/'.$typeproduct.';base64,%s" width="230"  />', base64_encode($s_product));
+				if($s_product){
 				?>
 				<img src="../../image/pdf/product/<?=$s_product;?>?v=<?=time();?>" width="230" />
 				<?php
@@ -93,13 +97,11 @@ if($_FILES["s_slip"]["name"]){
 					<img src="../../image/noimage.gif" width="230" />
 					<?php
 				}
-				
 				?>
 				<br />
 				<br />
 				<?php
-				if($_FILES["s_slip"]["name"]){
-				//echo sprintf('<img src="data:image/'.$typeslip.';base64,%s" width="230"  />', base64_encode($s_slip));
+				if($s_slip){
 				?>
 				<img src="../../image/pdf/slip/<?=$s_slip;?>?v=<?=time();?>" width="230" />
 				<?php
@@ -109,10 +111,8 @@ if($_FILES["s_slip"]["name"]){
 					<?php
 				}
 				?>
-				<!-- Slip -->
 			</td>
 			<td valign="top">
-				<!-- Detail -->
 				<table width="100%">
 					<tr>
 						<td width="150"><strong>ชื่อผู้ฝากสินค้า</strong></td>
@@ -138,12 +138,6 @@ if($_FILES["s_slip"]["name"]){
 						<td><strong>อัตราดอกเบี้ย</strong></td>
 						<td align="left" colspan="3"><?=$_POST[i_vat1];?>% : <?=number_format($t_vat,2);?>-.</td>
 					</tr>
-					<!--<tr>
-						<td><strong>ค่าดำเนินการ</strong></td>
-						<td align="left"><?=$_POST[i_commission1];?>% : <?=number_format($t_com,2);?>-.</td>
-						<td><strong>อัตราดอกเบี้ย</strong></td>
-						<td align="left"><?=$_POST[i_vat1];?>% : <?=number_format($t_vat,2);?>-.</td>
-					</tr>-->
 					<tr>
 						<td><strong>ยอดคงเหลือ</strong></td>
 						<td align="left" colspan="3"><?=number_format($balance,2);?>-.</td>
@@ -156,12 +150,11 @@ if($_FILES["s_slip"]["name"]){
 						<td><strong>วันครบกำหนด</strong></td>
 						<td align="left" colspan="3"><?=$_POST[d_finish];?></td>
 					</tr>
-					
 				</table>
 				<div align="center">
 					<font style="color: #ff0000;font-style: italic;font-size: 15px;">หมายเหตุ**กรุณาต่อดอกเบี้ย ภายใน 1 เดือน และรับสินค้าออกภายใน 3 เดือน**</font>
 				</div>
-				<div style="border: 1px solid #000; padding: 5px;">
+				<div style="border: 0px solid #000; padding: 5px;">
 					<table>
 						<tr>
 							<td style="border: 1px solid #000; padding: 5px;">
@@ -205,9 +198,7 @@ if($_FILES["s_slip"]["name"]){
 							</td>
 						</tr>
 					</table>
-					
 				</div>
-
 					<table>
 						<tr>
 						<td width="60%"></td>
@@ -222,25 +213,15 @@ if($_FILES["s_slip"]["name"]){
 							</td>
 						</tr>
 					</table>
-
 			</td>
 		</tr>
 	</table>
 	</div>
 </div>
 
-
 <?php
-
- 
-
-
-
-
-
-
-
-}else{
+}
+else{
 	?>
 	<div align="center">
 	<br />
@@ -254,22 +235,23 @@ if($_FILES["s_slip"]["name"]){
 	</div>
 	<?php
 }
-
-
 ?>
-
-        <!--begin::Page Vendors -->
-        <!--<script src="../../assets/vendors/custom/fullcalendar/fullcalendar.bundle.js" type="text/javascript"></script>-->
-        <!--end::Page Vendors -->  
-        <!--begin::Page Snippets -->
-
-        <!--end::Page Snippets -->
     </body>
-    <!-- end::Body -->
 </html>
+
 <?php
+$Android = stripos($_SERVER['HTTP_USER_AGENT'],"Android");
+if($Android){
+	
+}else{
+	
+if($_GET[cre] == 1){
+	
+
+//*
 $output = ob_get_contents();
 ob_end_clean();
+sleep(0);
 require_once '../../vendorPdf/autoload.php';
 
 $mpdf = new \Mpdf\Mpdf([
@@ -283,5 +265,13 @@ $mpdf->SetWatermarkText('       Minnie_Brandname');
 $mpdf->showWatermarkText = true;
 //$mpdf->showImageErrors = true;
 $mpdf->WriteHTML($output);
-$mpdf->Output($title_name.'.pdf','I');
+$mpdf->Output('pdf/'.$title_name.'.pdf','F');
+//$mpdf->Output($title_name.'.pdf','I');
+
+//*/
+}
+
+}
+
 ?>
+<div align="center"><a href="pdf/<?=$title_name;?>.pdf"><h1>ดูบิลใบรับฝากสินค้า</h1></a></div>

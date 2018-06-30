@@ -1,8 +1,5 @@
 <?php
 @session_start();
-$Android = stripos($_SERVER['HTTP_USER_AGENT'],"Android");
-
-//$Android = TRUE;
 ?>
 <html lang="en" >
     <!-- begin::Head -->
@@ -73,8 +70,8 @@ $Android = stripos($_SERVER['HTTP_USER_AGENT'],"Android");
                     <!-- END: Subheader -->
                     <!---------------------  START CONTENT  --------------------->
                     <div class="m-content">
-                        <!--begin::Form   -->
-                        <form  target="_blank" class="m-form m-form--fit m-form--label-align-right" id="form-action" action="../../bill/export/?export=1"   method="post" enctype="multipart/form-data">
+                        <!--begin::Form-->
+                        <form class="m-form m-form--fit m-form--label-align-right" id="form-action" action="../../bill/export/?export=1" target="_blank"  method="POST" enctype="multipart/form-data">
                             <div class="row">
                                 
                                 <div class="col-lg-12">
@@ -230,21 +227,7 @@ $Android = stripos($_SERVER['HTTP_USER_AGENT'],"Android");
                                         <div class="m-portlet__foot m-portlet__foot--fit" align="center">
                                             <div class="m-form__actions m-form__actions">
                                                 <a href="index.php" class="btn btn-secondary"><?= L::btn_cancel ?></a>
-                                                <?php
-                                                if($Android){
-                                                	$btn_type_aa = "button";
-                                                	$btn_type_pdf = '<i class="fa fa-file-pdf-o"></i>-';
-																								}else{
-																									$btn_type_aa = "submit";
-
-																								}
-                                                ?>
-                                                <button type="<?=$btn_type_aa;?>" class="btn btn-primary" id="btn-mg-save"><?=$btn_type_pdf;?> <?= L::btn_exportBill ?></button>
-                                            <br />
-                                            <div id="url_android">
-                                            	
-                                            </div>
-                                            <!--<?=$_SERVER['HTTP_USER_AGENT'];?>-->
+                                                <button type="submit" class="btn btn-primary" id="btn-mg-save"><?= L::btn_exportBill ?></button>
                                             </div>
                                             <?php if ($_POST[id] != NULL && $_POST[id] != "") { ?>
                                                 <div class="form-group m-form__group row">
@@ -292,50 +275,6 @@ $Android = stripos($_SERVER['HTTP_USER_AGENT'],"Android");
         	unblockui();
         </script>
         <script src="../../js/bill/index.js" type="text/javascript"></script>
-        <?php
-        
-        if($Android){
-					
-				
-        ?>
-		<script>
-		//alert('<?=$_SESSION[export_namesss];?>')
-			$("#btn-mg-save").on("click" ,billing );
-			function billing(){
-				$('#url_android').html('');
-				   //document.getElementById("form-action").submit();
-				   var jsonData = new FormData($("#form-action")[0]);
-console.log(5555555555555);
-			    $.ajax({
-			        type: 'POST',
-			        url: contextPath + '/api/Authen/Rundb',
-			        data: jsonData,
-			        dataType: 'json',
-			        cache: false,
-			        contentType: false,
-			        processData: false,
-			        beforeSend: function () {
-			            //blockui_always();
-			        },
-			        success: function (data) {
-			        	 
-			        	 console.log(data.statusDesc);
-			        	 
-			        	 
-			        	 var url = "../../bill/export/pdf/"+data.statusDesc+'.pdf'; 
-    							window.open(url, '_blank');
-    							console.log(data);
-    							$('#url_android').html('<br /><a href="'+url+'" target="_blank">ดูบิลใบรับฝากสินค้า</a>');
-
-			        },
-			        error: function (data) {
-			            console.log(data);
-			        }
-
-			    });
-			}
-		</script>
-		<?php } ?>
         <!--end::Page Snippets -->
     </body>
     <!-- end::Body -->

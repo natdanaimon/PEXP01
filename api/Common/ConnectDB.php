@@ -3,10 +3,10 @@
 class ConnectDB {
 
 
-    protected $_dbname = "pexp01";
-    protected $_host = "127.0.0.1";
-    protected $_user = "root";
-    protected $_pass = "";
+    protected $_dbname = "cp868305_minniesurgerydb";
+    protected $_host = "localhost";
+    protected $_user = "cp868305_minnie";
+    protected $_pass = "Minn1213!";
 
     protected $_conn;
     protected $_email_host = "0.0.0.0";
